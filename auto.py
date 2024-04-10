@@ -80,5 +80,3 @@ def main():
     plt.axis((0, 12, 0, 12))
     plt.legend()
     plt.show()
-    
-main()
