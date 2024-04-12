@@ -39,10 +39,13 @@ def regressao_quadratica(x, y):
     return coefs
 
 
-def main():  
+def main():
+    """
+        n define a quantidade de pontos a serem gerados ou analisados
+    """
     n = 5
-    pontos_iniciais = auto(n)
-    #pontos_iniciais = manual(n)
+    pontos_iniciais = auto(n) #essa função cria pontos aleatrórios
+    #pontos_iniciais = manual(n) #essa função permite que o usuario escreva manualmente os pontos
         
     x = [p[0] for p in pontos_iniciais]     #Lista de coordenadas X
     y = [p[1] for p in pontos_iniciais]     #Lista de coordenadas Y
