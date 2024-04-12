@@ -2,8 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random as rdm
 
-def selecionar_pontos(n):
-    # n: numero de indivíduos
+def manual(n):
+    pontos = [] 
+    for _ in range(n):
+        x = float(input("coordenadas x em n: "))
+        y = float(input("coordenadas y em n: "))
+        pontos.append([x, y])
+    return pontos
+
+def auto(n):
     pontos = [] 
     valores_x = rdm.sample(range(11), n)  # Garantir que os valores de x não se repitam
     for x in valores_x:
@@ -31,18 +38,17 @@ def regressao_quadratica(x, y):
     coefs = np.linalg.lstsq(A, y, rcond=None)[0]
     return coefs
 
-def main():
-    """
-    Deve-se inicializar a quantidade de pontos que se deseja no gráfico (n)
-    """
-    n = 10
-    pontos_iniciais = selecionar_pontos(n)
-    
-    for individuo in pontos_iniciais:
-        print(individuo)
+
+def main():  
+    n = 5
+    pontos_iniciais = auto(n)
+    #pontos_iniciais = manual(n)
         
-    x = [p[0] for p in pontos_iniciais]  # Lista de coordenadas X
-    y = [p[1] for p in pontos_iniciais]  # Lista de coordenadas Y
+    x = [p[0] for p in pontos_iniciais]     #Lista de coordenadas X
+    y = [p[1] for p in pontos_iniciais]     #Lista de coordenadas Y
+    
+    print('pontos x:\n', x)
+    print('pontos y:\n', y)
     
     # Plotar os pontos
     plt.scatter(np.array(x), np.array(y)) 
@@ -59,7 +65,7 @@ def main():
         x_quadratico = np.linspace(min(x), max(x), 100)
         y_quadratico = coefs[0]*x_quadratico**2 + coefs[1]*x_quadratico + coefs[2]
         plt.plot(x_quadratico, y_quadratico, color='red', label=equacao2)
-    
+
     def linear():
         # Realizar regressão linear
         a, b = regressao_linear(x, y)
@@ -72,11 +78,13 @@ def main():
         x_reta = np.linspace(min(x), max(x), 100)
         y_reta = a * x_reta + b
         plt.plot(x_reta, y_reta, color='green', label=equacao1)
-    
+     
     linear()
     quadratica()    
     plt.xlabel('Eixo X')
     plt.ylabel('Eixo Y')
-    plt.axis((0, 12, 0, 12))
+    plt.axis((0, max(x)+ 1, 0, max(y)+ 1))
     plt.legend()
     plt.show()
+
+main()
