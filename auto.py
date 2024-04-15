@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random as rdm
+import pandas as pd
 
 def manual(n):
     pontos = [] 
@@ -46,6 +47,7 @@ def main():
     n = 5
     pontos_iniciais = auto(n) #essa função cria pontos aleatrórios
     #pontos_iniciais = manual(n) #essa função permite que o usuario escreva manualmente os pontos
+    
         
     x = [p[0] for p in pontos_iniciais]     #Lista de coordenadas X
     y = [p[1] for p in pontos_iniciais]     #Lista de coordenadas Y
@@ -90,4 +92,4 @@ def main():
     plt.legend()
     plt.show()
 
-main()
+#main()
