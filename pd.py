@@ -23,7 +23,7 @@ def main():
             coefs = regressao_quadratica(np.array(x), np.array(y))
             
             # Equação do polinômio
-            equacao2 = f'f(x) = {coefs[0]:.2f}x^2 + {coefs[1]:.2f}x + {coefs[2]:.2f}'
+            equacao2 = f'f(x) = {coefs[0]:f}x^2 + {coefs[1]:f}x + {coefs[2]:f}'
             print("Equação do polinômio quadrático:", equacao2)
             
             # Plotar a curva quadrática
