@@ -91,5 +91,4 @@ def main():
     plt.axis((0, max(x)+ 1, 0, max(y)+ 1))
     plt.legend()
     plt.show()
-
-#main()
+main()
